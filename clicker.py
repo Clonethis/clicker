@@ -65,6 +65,7 @@ def firstLayout():
             elif userInput=="c":
                 for i in userCreatingData:
                     print(i)
+        # print("saves nice")
         saveData(userCreatingData)
             # mrelease
     elif(userInput=='l'):
@@ -86,11 +87,10 @@ def firstLayout():
 # print(pt.position())
 
 def saveData(arr):
-    savingString=""
-    for i in arr:
-        savingString+=i
     os.chdir("saves")
-    pickle.dumps(arr,"save1.txt")
+    userInput=input("Set name for save file: ")
+    with open(userInput+".txt", 'wb') as fh:
+        pickle.dump(arr, fh)
     os.chdir("../")
 
 firstLayout()
