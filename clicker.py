@@ -13,6 +13,8 @@ from pynput.mouse import Button, Controller
 from time import sleep
 import os
 import pickle
+import keyboard
+# https://pypi.org/project/keyboard/
 
 #loads data mode
 import load
@@ -22,8 +24,6 @@ import create
 # https://stackoverflow.com/questions/11700593/creating-files-and-directories-via-python
 
 mouse = Controller()
-mpress = mouse.press(Button.left)
-mrelease = mouse.release(Button.left)
 tutorial = ["Press keys in :'' to make routine","'t' -> records text",
 "'s' -> check for shortcut ends with '0'",
 "'m' -> Left mouse click",
@@ -50,24 +50,13 @@ def firstLayout():
         for i in tutorial:
             print(i)
         while(mouse.position!=(0,0) or userInput!='q'):
-            userInput= input("Press key:(t,s,m,r,n)")
-            if userInput=="s":
-                # secondUserInput=input("")
-                keyboard.key_recognizer()
-            if userInput=="q":
-                break
-                    # userCreatingData.append(KeyboardPress("s",""))
-            # if userInput=="t":
-            #     secondUserInput=input("")
-            #     while(secondUserInput!="0"):
-
-            # elif userInput=="m":
-
-            # elif userInput=="r":
-
-            # elif userInput=="n":
-            
-
+            userInput= input("Press key:(t,s,d,m,r,n)")
+            if userInput=="r":
+                mouse.press(Button.right)
+                mouse.release(Button.right)
+                print("Iran")
+                sleep(0.1)
+            # mrelease
     elif(userInput=='l'):
         if os.listdir("saves")==[]:
             print("Try creating option first ")
