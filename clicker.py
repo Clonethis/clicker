@@ -89,7 +89,7 @@ def firstLayout():
 def saveData(arr):
     os.chdir("saves")
     userInput=input("Set name for save file: ")
-    with open(userInput+".txt", 'wb') as fh:
+    with open(userInput+".pkl", 'wb') as fh:
         pickle.dump(arr, fh)
     os.chdir("../")
 
