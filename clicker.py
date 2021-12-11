@@ -3,6 +3,8 @@
 #todo write saved commands into file
 # todo load commands and run them
 
+
+
 # text input end with 0 if 0 check for another shortcut to record
 # import pyautogui as pt;
 from pynput import mouse, keyboard
@@ -49,23 +51,34 @@ def firstLayout():
     if(userInput=='c'):
         for i in tutorial:
             print(i)
-        while(mouse.position!=(0,0) or userInput!='q'):
+        while(userInput!='q'):
+            print("user Input : ",userInput)
             userInput= input("Press key:(t,s,d,m,r,n)")
+            print("user Input2 after : ",userInput)
             if userInput=="r":
                 mouse.press(Button.right)
                 mouse.release(Button.right)
+                userCreatingData.append("r")
+
                 print("Iran")
                 sleep(0.1)
+            elif userInput=="c":
+                for i in userCreatingData:
+                    print(i)
+        saveData(userCreatingData)
             # mrelease
     elif(userInput=='l'):
-        if os.listdir("saves")==[]:
+        # os.mkdir("saves")
+        # https://www.tutorialspoint.com/python/os_listdir.htm
+        if "saves" not in os.listdir("../clicker"):
             print("Try creating option first ")
             firstLayout()
-
-        print(os.listdir("saves"))
-        whichOne=input("\nwhich should I run\n")
-        os.chdir("saves")        
-        load.loadMode 
+        else:
+            print(os.listdir("saves"))
+            whichOne=input("\nwhich should I run\n")
+            os.chdir("saves")        
+            
+            load.loadMode 
 
 # while(mouse.position!=(0,0)):
 #     print('The current pointer position is %s' % format(mouse.position) )
@@ -73,6 +86,9 @@ def firstLayout():
 # print(pt.position())
 
 def saveData(arr):
+    savingString=""
+    for i in arr:
+        savingString+=i
     os.chdir("saves")
     pickle.dumps(arr,"save1.txt")
     os.chdir("../")
