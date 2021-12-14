@@ -8,13 +8,19 @@
 # text input end with 0 if 0 check for another shortcut to record
 # import pyautogui as pt;
 # docs : https://pynput.readthedocs.io/en/latest/index.html
-from pynput import mouse, keyboard
+# from typing import Match
 
+from pynput import mouse, keyboard
+from collections import deque
+
+# callable funct
+# from typing import Set, List, Tuple, Dict, Callable
 # docs:https://docs.python.org/3/library/sys.html#sys.platform
 import sys
 
 # import platform
 from pynput.mouse import Button, Controller
+
 
 # from pynput.keyboard import Key, Controller
 
@@ -101,15 +107,24 @@ def firstLayout():
             firstLayout()
         else:
             # print("Saved: '")
-            print("\nWhich number would you like to run: ")
-            for x, i in enumerate(os.listdir("saves")):
-                i=i.split(".pkl")
-                print(f"{x}: {i[0]}")
-            # print("'")
-            whichOne=input("")
-            os.chdir("saves")        
-            
-            load.loadMode 
+            fInSaves = os.listdir("saves")
+
+            if(fInSaves==1):
+                loadMode(os.listdir("save"))
+            else:
+                print("\nWhich number would you like to run: \n")
+                for x, i in enumerate(fInSaves):
+                    i=i.split(".pkl")
+                    print(f"{x}: {i[0]}")
+
+                # print("'")
+                whichOne=input("")
+                
+
+                os.chdir("saves")        
+
+                loadedDate = load.loadMode(fInSaves[int(whichOne)])
+                
     else: 
         print("Try valid char: 'c' or 'l' ")
         firstLayout()
