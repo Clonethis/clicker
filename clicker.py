@@ -39,21 +39,11 @@ mouse = Controller()
 # print(tutorial)
 userInput = ""
 
-# userCreatingData[2,{"s"}]
-# class KeyboardPress:
-#     def __init__(command,value):
-#        command = ""
-#        value = []
-# key = KeyboardPress()
-
 
 def firstLayout():
-    # print(os.name())
     for i in sys.argv:
         print("system platform: " + i)
-    # for i in platform.mac_ver():
-    #     print(i)
-    # print("source architecture: "+platform.mac_ver())
+
     userInput = input(
         "Press 'c' for create new routine or 'l' for load last routine\n")
     if(userInput == 'c'):
@@ -64,11 +54,6 @@ def firstLayout():
     else:
         print("Try valid char: 'c' or 'l' ")
         firstLayout()
-
-# while(mouse.position!=(0,0)):
-#     print('The current pointer position is %s' % format(mouse.position) )
-#     sleep(0.3)
-# print(pt.position())
 
 
 firstLayout()

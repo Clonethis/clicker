@@ -19,15 +19,14 @@ def dataCreate(userInput, mouse, keyboard):
                 ]
     for i in tutorial:
         print(i)
+
         while(userInput != 'q'):
-            print("user Input : ", userInput)
             userInput = input("Press key:(t,s,d,m,r,n)")
-            print("user Input2 after : ", userInput)
+
             if userInput == "r":
-                # mouse.press(Button.right)
-                # mouse.release(Button.right)
                 pos = mouse.position
                 userCreatingData.append(("r", pos))
+
                 for i in userCreatingData:
                     print(f"userArray: {i}")
                 # userCreatingData.append(["r"])
@@ -40,17 +39,18 @@ def dataCreate(userInput, mouse, keyboard):
             elif userInput == "c":
                 for i in userCreatingData:
                     print(i)
-        # print("saves nice")
-        for i in os.listdir():
-            print("dir: i: "+i)
-        # print("list dir: "+os.listdir())
+        print("running outside")
         saveData(userCreatingData)
 
 
 def saveData(arr):
     # checks if folder 'saves'
-
-    if (not os.isdir("saves")):
+    createFolder = True
+    for i in os.listdir():
+        if i == "saves":
+            createFolder = False
+            break
+    if (createFolder):
         create.createMode()
     os.chdir("saves")
     userInput = input("Set name for save file: ")
