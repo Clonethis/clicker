@@ -1,7 +1,8 @@
 from pynput.mouse import Button, Controller
 import keyboard
-
+from time import sleep
 def routine(dataLoaded):
+    defaultSleep = 1
     mouse = Controller()
     print(f"loaded data: {dataLoaded}")
     for command in dataLoaded:
@@ -14,9 +15,10 @@ def routine(dataLoaded):
             # print(command)
             # print(command[1])
             if command == "r":
-                mouse.position(value)
+                mouse.position = value
                 mouse.press(Button.right)
                 mouse.release(Button.right)
-        # else: 
+                sleep(defaultSleep)
+        # else: nic
         #     print("nothing")
 
