@@ -1,19 +1,21 @@
 import pickle
 import os
 # import pynput.mouse
-from pynput.mouse import Controller, Button
-from pynput.keyboard import Controller 
+from pynput.mouse import Controller
+import key
+# from pynput.keyboard import Controller 
 
 #Todo1 implement all functions bellow:
 
-def shortcuts(array,keyboard):
+def shortcuts(array):
     #needs listner for keyboard events
     #live checks keyboard
     # returns 's' with tuple -> on press and on release value
     pass
 def listArray(array):
     #writes out whole current array
-    pass
+    for i in array:
+        print(i)
 def copy(array,buffer):
     # must set some global variable 'copybuffer' to some value selected by user 
     pass
@@ -21,6 +23,7 @@ def paste(array,buffer):
     # check if 'copybuffer' is not empty after that ctrl v 
     pass
 def lMouseClick(array,mouse):
+    # mouse = Controller()
     pos = mouse.position
     array.append(("l", pos))
     for i in array:
@@ -65,15 +68,16 @@ def dataCreate():
         userInput = input("Press key:(t,s,d,m,r,n)")
 
         if userInput == "t":
-            shortcuts(userCreatingData,keyboard)
+            shortcuts(userCreatingData)
         elif userInput == "r":
             rMouseClick(userCreatingData,mouse)
         elif userInput == "l":
             lMouseClick(userCreatingData,mouse)
 
         elif userInput == "w":
-            for i in userCreatingData:
-                print(i)
+            listArray(userCreatingData)
+        elif userInput == "d":
+            delete(userCreatingData)
         else:
             print("try valid key")
     print("running outside")

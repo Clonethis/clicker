@@ -4,3 +4,5 @@ comand before run:
 all docs:
 
 
+>if you want to change time between each command go to start.py and change variable 'deafaultSleep'
+
