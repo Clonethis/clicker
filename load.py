@@ -4,15 +4,6 @@ import start
 # loads data from file
 
 
-def loadMode(whichone):
-    try:
-        os.chdir("saves")
-        fp = open(whichone,"rb")
-        new_dict = pickle.load(fp)
-        fp.close()
-        return new_dict
-    except PermissionError:
-        return "some default data"
 
 def loadData():
     # os.mkdir("saves")
@@ -35,3 +26,12 @@ def loadData():
         start.routine(dataLoaded)
 
 
+def loadMode(whichone):
+    try:
+        os.chdir("saves")
+        fp = open(whichone,"rb")
+        new_dict = pickle.load(fp)
+        fp.close()
+        return new_dict
+    except PermissionError:
+        return "some default data"

@@ -33,7 +33,8 @@ def rMouseClick(array,mouse):
 
 def delete(array):
     #pops last element from array
-    pass
+    array.pop()
+    
 def close(array):
     pass
 #todo2 pass them into adequate dataCreate if statements
@@ -49,7 +50,7 @@ def dataCreate():
                 "'r' -> right mouse click"
                 "'d' -> deletes last command",
                 "'n' -> closes and saves data",
-                "'l' -> for write out all comands in this session",
+                "'w' -> for write out all comands in this session",
                 "Program ends with pressing: 'q'"
                 ]
     userInput=""
@@ -63,15 +64,17 @@ def dataCreate():
             # sleep(0.1)
         elif userInput == "l":
             lMouseClick(userCreatingData,mouse)
-        elif userInput == "c":
+        elif userInput == "w":
             for i in userCreatingData:
                 print(i)
+        else:
+            print("try valid key")
     print("running outside")
     saveData(userCreatingData)
 
 
 def saveData(arr):
-    # checks if folder 'saves'
+    # checks if folder 'saves' exists
     createFolder = True
     for i in os.listdir():
         if i == "saves":
@@ -81,8 +84,8 @@ def saveData(arr):
         createMode()
     os.chdir("saves")
     userInput = input("Set name for save file: ")
-    with open(userInput+".pkl", 'wb') as fh:
-        pickle.dump(arr, fh)
+    with open(userInput+".pkl", 'wb') as f:
+        pickle.dump(arr, f)
     os.chdir("../")
 
 def createMode():

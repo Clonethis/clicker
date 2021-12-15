@@ -25,7 +25,7 @@ def delete(array):
     pass
 def close(array):
     pass
-
+from collections import deque
 from time import sleep
 def routine(dataLoaded):
     defaultSleep = 1
