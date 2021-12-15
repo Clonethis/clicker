@@ -2,10 +2,12 @@ import pickle
 import os
 # import pynput.mouse
 from pynput.mouse import Controller, Button
+from pynput.keyboard import Controller 
 
 #Todo1 implement all functions bellow:
 
-def shortcuts(array):
+def shortcuts(array,keyboard):
+    #needs listner for keyboard events
     #live checks keyboard
     # returns 's' with tuple -> on press and on release value
     pass
@@ -41,6 +43,7 @@ def close(array):
 #todo 3 in start.py
 def dataCreate():
     mouse= Controller()
+    keyboard = Controller()
     userCreatingData = [()]
     tutorial = ["Press keys in :'' to make routine", "'t' -> records text",
                 "'s' -> check for shortcut ends with '0'or 'esc' key press",
@@ -50,20 +53,24 @@ def dataCreate():
                 "'r' -> right mouse click"
                 "'d' -> deletes last command",
                 "'n' -> closes and saves data",
-                "'w' -> for write out all comands in this session",
+                "'w' -> for write out all current commands",
                 "Program ends with pressing: 'q'"
                 ]
     userInput=""
+    copyBuffer = ""
     for i in tutorial:
         print(i)
     while(userInput != 'q'):
+
         userInput = input("Press key:(t,s,d,m,r,n)")
 
-        if userInput == "r":
+        if userInput == "t":
+            shortcuts(userCreatingData,keyboard)
+        elif userInput == "r":
             rMouseClick(userCreatingData,mouse)
-            # sleep(0.1)
         elif userInput == "l":
             lMouseClick(userCreatingData,mouse)
+
         elif userInput == "w":
             for i in userCreatingData:
                 print(i)
