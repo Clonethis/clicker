@@ -22,8 +22,9 @@ def loadData():
         # os.chdir("saves")
 
         dataLoaded = loadMode(os.listdir("saves")[int(whichOne)])
+        iteration = input("how many times would you like to run script?")
         input("on key press run selected routine")
-        start.routine(dataLoaded)
+        start.routine(dataLoaded,int(iteration))
 
 
 def loadMode(whichone):
