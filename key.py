@@ -2,7 +2,7 @@
 
 # keyboard = Controller()
 
-# # Press and release space
+# Press and release space
 # keyboard.press(Key.space)
 # keyboard.release(Key.space)
 

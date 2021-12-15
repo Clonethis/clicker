@@ -18,14 +18,12 @@ import sys
 from pynput.mouse import Button, Controller
 # from pynput.keyboard import Key, Controller
 from time import sleep
-import os
-import pickle
-import keyboard
+
 # https://pypi.org/project/keyboard/
 
 # loads data mode
 import load
-import keyboard
+
 
 # creates file mode
 import dataCreate
@@ -37,7 +35,7 @@ userInput = ""
 def firstLayout():
     userInput = input("Press 'c' for create new routine or 'l' for load last routine\n")
     if(userInput == 'c'):
-        dataCreate.dataCreate( mouse, keyboard)
+        dataCreate.dataCreate()
     elif(userInput == 'l'):
         load.loadData()
     else:

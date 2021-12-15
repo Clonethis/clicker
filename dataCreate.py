@@ -1,43 +1,73 @@
 import pickle
 import os
+# import pynput.mouse
+from pynput.mouse import Controller, Button
 
+#Todo1 implement all functions bellow:
 
-def dataCreate(mouse, keyboard):
+def shortcuts(array):
+    #live checks keyboard
+    # returns 's' with tuple -> on press and on release value
+    pass
+def listArray(array):
+    #writes out whole current array
+    pass
+def copy(array,buffer):
+    # must set some global variable 'copybuffer' to some value selected by user 
+    pass
+def paste(array,buffer):
+    # check if 'copybuffer' is not empty after that ctrl v 
+    pass
+def lMouseClick(array,mouse):
+    pos = mouse.position
+    array.append(("l", pos))
+    for i in array:
+        print(f"userArray: {i}")
+
+def rMouseClick(array,mouse):
+    pos = mouse.position
+    array.append(("r", pos))
+    for i in array:
+        print(f"userArray: {i}")
+    print("Right mouse click")
+
+def delete(array):
+    #pops last element from array
+    pass
+def close(array):
+    pass
+#todo2 pass them into adequate dataCreate if statements
+#todo 3 in start.py
+def dataCreate():
+    mouse= Controller()
     userCreatingData = [()]
-
     tutorial = ["Press keys in :'' to make routine", "'t' -> records text",
-                "'s' -> check for shortcut ends with '0'",
+                "'s' -> check for shortcut ends with '0'or 'esc' key press",
+                "'c' -> for copy -> same as ctrl+c"
+                "'p' -> for paste -> same as ctrl+v"
                 "'m' -> Left mouse click",
                 "'r' -> right mouse click"
                 "'d' -> deletes last command",
                 "'n' -> closes and saves data",
                 "'l' -> for write out all comands in this session",
-                "Program ends with mouse cursor on top left corner or by pressing: 'q'"
+                "Program ends with pressing: 'q'"
                 ]
+    userInput=""
     for i in tutorial:
         print(i)
+    while(userInput != 'q'):
+        userInput = input("Press key:(t,s,d,m,r,n)")
 
-        while(userInput != 'q'):
-            userInput = input("Press key:(t,s,d,m,r,n)")
-
-            if userInput == "r":
-                pos = mouse.position
-                userCreatingData.append(("r", pos))
-
-                for i in userCreatingData:
-                    print(f"userArray: {i}")
-                # userCreatingData.append(["r"])
-                # generator docs; https://www.python.org/dev/peps/pep-0289/
-
-                # print(pos)
-                # userCreatingData.append(["r",pos])
-                print("Right mouse click")
-                # sleep(0.1)
-            elif userInput == "c":
-                for i in userCreatingData:
-                    print(i)
-        print("running outside")
-        saveData(userCreatingData)
+        if userInput == "r":
+            rMouseClick(userCreatingData,mouse)
+            # sleep(0.1)
+        elif userInput == "l":
+            lMouseClick(userCreatingData,mouse)
+        elif userInput == "c":
+            for i in userCreatingData:
+                print(i)
+    print("running outside")
+    saveData(userCreatingData)
 
 
 def saveData(arr):
@@ -63,4 +93,3 @@ def createMode():
     else:
         print("created saves")
         os.mkdir(path="saves")
-    

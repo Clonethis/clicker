@@ -13,10 +13,6 @@ def loadMode(whichone):
         return new_dict
     except PermissionError:
         return "some default data"
-    else:
-        with fp:
-            return fp.read()
-
 
 def loadData():
     # os.mkdir("saves")
