@@ -121,7 +121,7 @@ def firstLayout():
     elif(userInput == 'l'):
         load.loadData()
     else:
-        print("Try valid char: 'l' or 'l' ")
+        print("Try valid char: 'c' or 'l' ")
         firstLayout()
 
 
