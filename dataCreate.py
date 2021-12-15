@@ -2,9 +2,7 @@ import pickle
 import os
 
 
-def dataCreate(userInput, mouse, keyboard):
-    # dict docs: https://www.w3schools.com/python/python_dictionaries.asp
-    # inputDict ={"s":damn(),"v":funct()}
+def dataCreate(mouse, keyboard):
     userCreatingData = [()]
 
     tutorial = ["Press keys in :'' to make routine", "'t' -> records text",

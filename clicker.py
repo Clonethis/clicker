@@ -8,21 +8,15 @@
 # import pyautogui as pt;
 # docs : https://pynput.readthedocs.io/en/latest/index.html
 # from typing import Match
-
 from pynput import mouse, keyboard
 from collections import deque
-
 # callable funct
 # from typing import Set, List, Tuple, Dict, Callable
 # docs:https://docs.python.org/3/library/sys.html#sys.platform
 import sys
-
 # import platform
 from pynput.mouse import Button, Controller
-
-
 # from pynput.keyboard import Key, Controller
-
 from time import sleep
 import os
 import pickle
@@ -39,7 +33,6 @@ import dataCreate
 
 mouse = Controller()
 userInput = ""
-
 
 def firstLayout():
     userInput = input("Press 'c' for create new routine or 'l' for load last routine\n")
