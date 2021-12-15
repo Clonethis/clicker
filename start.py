@@ -9,12 +9,14 @@ def routine(dataLoaded):
         if command == ():
             print("hey you")
         else:
-            print(command)
-            print(command[1])
-        # if command[0] == "r":
-        #     mouse.position(command[1])
-        #     mouse.press(Button.right)
-        #     mouse.release(Button.right)
+            value = command[1]
+            command = command[0]
+            # print(command)
+            # print(command[1])
+            if command == "r":
+                mouse.position(value)
+                mouse.press(Button.right)
+                mouse.release(Button.right)
         # else: 
         #     print("nothing")
 
