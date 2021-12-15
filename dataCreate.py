@@ -1,4 +1,3 @@
-import create
 import pickle
 import os
 
@@ -51,9 +50,19 @@ def saveData(arr):
             createFolder = False
             break
     if (createFolder):
-        create.createMode()
+        createMode()
     os.chdir("saves")
     userInput = input("Set name for save file: ")
     with open(userInput+".pkl", 'wb') as fh:
         pickle.dump(arr, fh)
     os.chdir("../")
+
+def createMode():
+    if (os.path.isdir("saves")):
+        print("Saves folder already created")
+        return 0;
+
+    else:
+        print("created saves")
+        os.mkdir(path="saves")
+    
