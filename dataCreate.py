@@ -15,10 +15,9 @@ def shortcuts(array):
     #live checks keyboard
     # returns 's' with tuple -> on press and on release value
     pass
-def listArray(array):
+def wait(array):
     #writes out whole current array
-    for i in array:
-        print(i)
+    array.append(("w",""))
 def copy(array,buffer):
     # must set some global variable 'copybuffer' to some value selected by user 
     pass
@@ -59,7 +58,7 @@ def dataCreate():
                 "'r' -> right mouse click"
                 "'d' -> deletes last command",
                 "'n' -> closes and saves data",
-                "'w' -> for write out all current commands",
+                "'w' -> wait 1 sec",
                 "Program ends with pressing: 'q'"
                 ]
     userInput=""
@@ -77,9 +76,10 @@ def dataCreate():
         elif userInput == "l":
             lMouseClick(userCreatingData,mouse)
         elif userInput == "w":
-            listArray(userCreatingData)
+            wait(userCreatingData)
         elif userInput == "d":
             delete(userCreatingData)
+
         else:
             print("try valid key")
     print("running outside")

@@ -31,6 +31,7 @@ def key_recognizer():
         except AttributeError:
             print('special key {0} pressed'.format(
                 key))
+                # repair this code, to return something more meaningfull
             outputArray.append(("press",key))
 
     def on_release(key):

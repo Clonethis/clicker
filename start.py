@@ -1,4 +1,5 @@
 from pynput.mouse import Button, Controller
+import pynput.keyboard as Keyboard
 # import keyboard
 #read commands from file, create adequate functions
 
@@ -31,6 +32,7 @@ def routine(dataLoaded,iteration):
     # there you can change time between each command
     defaultSleep = 0.1
     mouse = Controller()
+    keyboard = Keyboard.Controller()
     print(f"loaded data: {dataLoaded}")
     for i in range(iteration):
         for command in dataLoaded:
@@ -53,7 +55,16 @@ def routine(dataLoaded,iteration):
                     mouse.press(Button.left)
                     mouse.release(Button.left)
                     sleep(defaultSleep)
-
-            # else: 
+                if command == "s":
+                    for action in value:
+                        if action[0]=='press':
+                            keyboard.press(action[1])
+                            print(f"pressed {action[1]}")
+                        else:
+                            print(f"released {action[1]}")
+                            keyboard.release(action[1])
+                        sleep(defaultSleep)
+                if command =="w":
+                    sleep(1)
             #     print("nothing")
 
