@@ -8,6 +8,9 @@ import key
 #Todo1 implement all functions bellow:
 
 def shortcuts(array):
+    keys =()
+    keys = key.key_recognizer()
+    array.append(("s",keys))
     #needs listner for keyboard events
     #live checks keyboard
     # returns 's' with tuple -> on press and on release value
@@ -67,13 +70,12 @@ def dataCreate():
 
         userInput = input("Press key:(t,s,d,m,r,n)")
 
-        if userInput == "t":
+        if   userInput == "s":
             shortcuts(userCreatingData)
         elif userInput == "r":
             rMouseClick(userCreatingData,mouse)
         elif userInput == "l":
             lMouseClick(userCreatingData,mouse)
-
         elif userInput == "w":
             listArray(userCreatingData)
         elif userInput == "d":
@@ -98,6 +100,7 @@ def saveData(arr):
     with open(userInput+".pkl", 'wb') as f:
         pickle.dump(arr, f)
     os.chdir("../")
+    print("saved data successfuly")
 
 def createMode():
     if (os.path.isdir("saves")):
