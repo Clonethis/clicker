@@ -27,6 +27,7 @@ def loadData():
         if(edit == 'e'):
             dataCreate.dataCreate(dataLoaded)
         iteration = input("how many times would you like to run script?")
+        # todo checker for keyboard press
         input("on key pressl run selected routine")
         start.routine(dataLoaded,int(iteration))
 
