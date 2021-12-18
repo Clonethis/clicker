@@ -1,3 +1,4 @@
+from dataCreate import dataCreate
 from pynput.mouse import Button, Controller
 import pynput.keyboard as Keyboard
 # import keyboard
@@ -30,7 +31,7 @@ from collections import deque
 from time import sleep
 def routine(dataLoaded,iteration):
     # there you can change time between each command
-    defaultSleep = 0.1
+    defaultSleep = 0.05
     mouse = Controller()
     keyboard = Keyboard.Controller()
     print(f"loaded data: {dataLoaded}")

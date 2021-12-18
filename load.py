@@ -1,6 +1,7 @@
 import os
 import pickle
 import start
+import dataCreate
 # loads data from file
 
 
@@ -22,8 +23,11 @@ def loadData():
         # os.chdir("saves")
 
         dataLoaded = loadMode(os.listdir("saves")[int(whichOne)])
+        edit = input("Do you want to edit saved file or run?press 'e'for edit every other key-> start")
+        if(edit == 'e'):
+            dataCreate.dataCreate(dataLoaded)
         iteration = input("how many times would you like to run script?")
-        input("on key press run selected routine")
+        input("on key pressl run selected routine")
         start.routine(dataLoaded,int(iteration))
 
 

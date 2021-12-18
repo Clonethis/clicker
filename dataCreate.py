@@ -46,7 +46,7 @@ def close(array):
     pass
 #todo2 pass them into adequate dataCreate if statements
 #todo 3 in start.py
-def dataCreate():
+def dataCreate(userCreatingData):
     mouse= Controller()
     keyboard = Controller()
     userCreatingData = [()]

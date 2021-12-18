@@ -21,9 +21,10 @@ import dataCreate
 userInput = ""
 
 def firstLayout():
+    defaultData = []
     userInput = input("Press 'c' for create new routine or 'l' for load last routine\n")
     if(userInput == 'c'):
-        dataCreate.dataCreate()
+        dataCreate.dataCreate(defaultData)
     elif(userInput == 'l'):
         load.loadData()
     else:

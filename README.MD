@@ -14,4 +14,6 @@ all docs:
 >python3 clicker.py 
 or 
 >python clicker.py
-
+good resources:
+if errors with pip on mac
+-> https://phoenixnap.com/kb/install-pip-mac
