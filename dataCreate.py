@@ -62,7 +62,7 @@ def dataCreate(userCreatingData):
                 "Program ends with pressing: 'q'"
                 ]
     userInput=""
-    copyBuffer = " "
+    copyBuffer = ""
     for i in tutorial:
         print(i)
     while(userInput != 'q'):
