@@ -1,4 +1,4 @@
-comand before run: 
+# To install first: # 
 install git using: 
 
 https://git-scm.com/downloads
