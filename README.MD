@@ -1,8 +1,15 @@
 comand before run: 
+install git using: 
+https://git-scm.com/downloads
+// after install run
+> git clone https://github.com/Clonethis/clicker.git
 you need python 3.8.9 + pip 21.3.1
 -- in terminal:
 >python3 --version
 >pip --version
+** installation of pip **
+https://bootstrap.pypa.io/get-pip.py
+--> download file and run with 'python get-pip.py'
 
 * pip install pynput 
 
