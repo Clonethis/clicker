@@ -25,7 +25,7 @@ all docs:
 # running script by: #
 
 >python3 clicker.py 
-or 
+
 >python clicker.py
 
 good resources:
