@@ -22,10 +22,13 @@ all docs:
 
 
 >if you want to change time between each command go to start.py and change variable 'deafaultSleep'
-# running script by: 
+# running script by: #
+
 >python3 clicker.py 
 or 
 >python clicker.py
+
 good resources:
 if errors with pip on mac
+
 -> https://phoenixnap.com/kb/install-pip-mac
