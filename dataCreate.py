@@ -1,5 +1,6 @@
 import pickle
 import os
+from pynput import mouse
 # import pynput.mouse
 from pynput.mouse import Controller
 import key
@@ -18,10 +19,13 @@ def shortcuts(array):
 def wait(array):
     #writes out whole current array
     array.append(("w",""))
-def copy(array,buffer):
+def copy(array,buffer,mouse):
     # must set some global variable 'copybuffer' to some value selected by user 
+    print("click and select with mouse text you want to copy")
+    mouse 
+    array.append(("c",))
     pass
-def paste(array,buffer):
+def paste(array,buffer,mouse):
     # check if 'copybuffer' is not empty after that ctrl v 
     pass
 def lMouseClick(array,mouse):
@@ -50,9 +54,9 @@ def dataCreate(userCreatingData):
     mouse= Controller()
     keyboard = Controller()
     userCreatingData = [()]
-    tutorial = ["Press keys in :'' to make routine", "'t' -> records text",
+    tutorial = ["Copy and paste commands still in progress","Press keys in :'' to make routine. Use ctrl+c only in 'c' command",
                 "'s' -> check for shortcut ends with '0'or 'esc' key press",
-                "'c' -> for copy -> same as ctrl+c"
+                "'c' -> for copy -> same as ctrl+c - press c-> select text with mouse"
                 "'p' -> for paste -> same as ctrl+v"
                 "'m' -> Left mouse click",
                 "'r' -> right mouse click"
@@ -66,11 +70,14 @@ def dataCreate(userCreatingData):
     for i in tutorial:
         print(i)
     while(userInput != 'q'):
-
-        userInput = input("Press key:(t,s,d,m,r,n)")
+        userInput = input("Press key:(s,c,p,d,l,r,q,w)")
 
         if   userInput == "s":
             shortcuts(userCreatingData)
+        elif userInput == "c":
+            copy(userCreatingData,copyBuffer,mouse)
+        elif userInput == "p":
+            paste(userCreatingData,copyBuffer,mouse)
         elif userInput == "r":
             rMouseClick(userCreatingData,mouse)
         elif userInput == "l":
